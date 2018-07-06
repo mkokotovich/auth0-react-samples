@@ -23,7 +23,7 @@ class Provision extends Component {
   provisionApp() {
     const { getAccessToken } = this.props.auth;
     const headers = { 'Authorization': `Bearer ${getAccessToken()}`}
-    axios.get(`${PROVISION_API_URL}/apps?appname=${this.state.appName}`, { headers })
+    axios.post(`${PROVISION_API_URL}/apps?appname=${this.state.appName}`, {}, { headers: headers })
       .then(response => this.setState({ message: response.data.message }))
       .catch(error => this.setState({ message: error.message }));
   }
