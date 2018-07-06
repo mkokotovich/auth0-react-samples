@@ -4,6 +4,7 @@ import App from './App';
 import Home from './Home/Home';
 import Profile from './Profile/Profile';
 import Ping from './Ping/Ping';
+import Provision from './Provision/Provision';
 import Callback from './Callback/Callback';
 import Auth from './Auth/Auth';
 import history from './history';
@@ -34,6 +35,13 @@ export const makeMainRoutes = () => {
               <Redirect to="/home"/>
             ) : (
               <Ping auth={auth} {...props} />
+            )
+          )} />
+          <Route path="/provision" render={(props) => (
+            !auth.isAuthenticated() ? (
+              <Redirect to="/home"/>
+            ) : (
+              <Provision auth={auth} {...props} />
             )
           )} />
           <Route path="/callback" render={(props) => {

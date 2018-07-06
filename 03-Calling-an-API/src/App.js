@@ -69,6 +69,17 @@ class App extends Component {
             {
               isAuthenticated() && (
                   <Button
+                    bsStyle="primary"
+                    className="btn-margin"
+                    onClick={this.goTo.bind(this, 'provision')}
+                  >
+                    Provision
+                  </Button>
+                )
+            }
+            {
+              isAuthenticated() && (
+                  <Button
                     id="qsLogoutBtn"
                     bsStyle="primary"
                     className="btn-margin"
